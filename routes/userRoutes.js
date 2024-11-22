@@ -6,7 +6,7 @@ const { registerSchema, loginSchema, updateProfileSchema } = require('../validat
 
 const router = express.Router();
 
-router.post('/register', register);
+router.post('/register', validateRequest(registerSchema), register);
 router.post('/login', validateRequest(loginSchema), login);
 router.get('/profile', authenticate, getProfile);
 router.put('/profile', authenticate, validateRequest(updateProfileSchema), updateProfile);

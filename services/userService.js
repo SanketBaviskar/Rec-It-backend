@@ -1,25 +1,53 @@
 const prisma = require('../config/prisma');
 
 const createUser = async (userData) => {
-  const user = await prisma.user.create({ data: userData });
-  console.log('User created:', user);
-  return user
+  try {
+    const user = await prisma.user.create({ data: userData });
+    return user;
+  } catch (error) {
+    console.error('Error creating user:', error.message);
+    throw error;
+  }
 };
 
-const findUserByEmail = (email) => {
-  return prisma.user.findUnique({ where: { email } });
+const findUserByEmail = async (email) => {
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    return user;
+  } catch (error) {
+    console.error('Error finding user by email:', error.message);
+    throw error;
+  }
 };
 
-const findUserById = (id) => {
-  return prisma.user.findUnique({ where: { id } });
+const findUserById = async (id) => {
+  try {
+    const user = await prisma.user.findUnique({ where: { id } });
+    return user;
+  } catch (error) {
+    console.error('Error finding user by ID:', error.message);
+    throw error;
+  }
 };
 
-const updateUser = (id, userData) => {
-  return prisma.user.update({ where: { id }, data: userData });
+const updateUser = async (id, userData) => {
+  try {
+    const updatedUser = await prisma.user.update({ where: { id }, data: userData });
+    return updatedUser;
+  } catch (error) {
+    console.error('Error updating user:', error.message);
+    throw error;
+  }
 };
 
-const deleteUserById = (id) => {
-  return prisma.user.delete({ where: { id } });
+const deleteUserById = async (id) => {
+  try {
+    const deletedUser = await prisma.user.delete({ where: { id } });
+    return deletedUser;
+  } catch (error) {
+    console.error('Error deleting user by ID:', error.message);
+    throw error;
+  }
 };
 
 

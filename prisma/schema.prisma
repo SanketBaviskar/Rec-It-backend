@@ -19,11 +19,11 @@ model User {
   avatar       String?
   phone        String?
   address      String?
-  gender       String
-  birthday     DateTime
+  gender       String?
+  birthday     DateTime?
   membershipId Int?       // Foreign key to Membership table
   membership   Membership? @relation(fields: [membershipId], references: [id])
-  accessId     String     @unique
+  accessId     String?     @unique
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }
