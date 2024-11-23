@@ -9,7 +9,7 @@ const Joi = require( 'joi');
   phone: Joi.string().min(10).max(15).optional(),
   address: Joi.string().min(10).max(100).optional(),
   gender: Joi.string().min(2).max(50).optional(),
-  birthday: Joi.date().optional(),
+  dateOfBirth: Joi.date().optional(),
   profilePicture: Joi.string().optional(),
   role: Joi.string().optional()
 });

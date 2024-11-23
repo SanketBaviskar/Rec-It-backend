@@ -14,14 +14,14 @@ model User {
   firstName    String
   middleName   String?
   lastName     String
-  role         String?
+  role         String?   @default("0")
   status       String?
   avatar       String?
   phone        String?
   address      String?
   gender       String?
-  birthday     DateTime?
-  membershipId Int?       // Foreign key to Membership table
+  dateOfBirth  DateTime?
+  membershipType Int?       // Foreign key to Membership table
   membership   Membership? @relation(fields: [membershipId], references: [id])
   accessId     String?     @unique
   createdAt    DateTime   @default(now())
