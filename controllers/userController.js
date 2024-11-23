@@ -9,7 +9,7 @@ const { ERROR_MESSAGES, SUCCESS_MESSAGES, HTTP_STATUS } = require('../errors/Api
 const addUser = async (req, res) => {
   try {
     const user = await createUser(req.body);
-    sendSuccessResponse(res, HTTP_STATUS.CREATED, user, SUCCESS_MESSAGES.RESTERED_SUCCESS);
+    sendSuccessResponse(res, HTTP_STATUS.CREATED, user, SUCCESS_MESSAGES.REGISTERED_SUCCESS);
   } catch (error) {
     console.log(error);
     sendErrorResponse(res, HTTP_STATUS.BAD_REQUEST, ERROR_MESSAGES.REGISTER_ERROR);
@@ -21,7 +21,7 @@ const register = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
     const hashedPassword = await hashPassword(password);
     const user = await createUser({ email, password: hashedPassword, firstName, lastName });
-    sendSuccessResponse(res, HTTP_STATUS.CREATED, { userId: user.id }, SUCCESS_MESSAGES.RESTERED_SUCCESS);
+    sendSuccessResponse(res, HTTP_STATUS.CREATED, { userId: user.id }, SUCCESS_MESSAGES.REGISTERED_SUCCESS);
   } catch (error) {
     sendErrorResponse(res, HTTP_STATUS.BAD_REQUEST, ERROR_MESSAGES.REGISTER_ERROR);
   }

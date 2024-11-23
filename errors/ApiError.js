@@ -13,6 +13,7 @@ const ERROR_MESSAGES = {
   INVALID_CREDENTIALS: 'Invalid email or password',
   TOKEN_EXPIRED: 'Token has expired',
   INVALID_TOKEN: 'Invalid token',
+  INTERNAL_SERVER_ERROR: 'Internal server error',
   //AUTH
   REGISTER_ERROR: 'Unable to register user',
   LOGIN_ERROR: 'Unable to login',
@@ -24,6 +25,7 @@ const ERROR_MESSAGES = {
 
 // Success messages
 const SUCCESS_MESSAGES = {
+  FETCHED_SUCCESS: 'Success',
   LIST_FOUND: 'List retrieved successfully',
   RESOURCE_CREATED: 'Resource created successfully',
   RESOURCE_UPDATED: 'Resource updated successfully',
@@ -33,10 +35,16 @@ const SUCCESS_MESSAGES = {
   PASSWORD_RESET: 'Password reset successfully',
   EMAIL_SENT: 'Email sent successfully',
   //AUTH
-  RESTERED_SUCCESS: 'User Registered successfully',
+  REGISTERED_SUCCESS: 'User Registered successfully',
   PROFILE_RETRIEVED:'Profile retrieved successfully',
   PROFILE_UPDATED:'Profile updated successfully',
   PROFILE_DELETED:'Profile deleted successfully',
+  //MEMBERSHIP
+  MEMBERSHIP_CREATED: 'Membership created successfully',
+  MEMBERSHIP_UPDATED: 'Membership updated successfully',
+  MEMBERSHIP_DELETED: 'Membership deleted successfully',
+  MEMBERSHIP_ASSIGNED: 'Membership assigned to user successfully',
+  MEMBERSHIP_REVOKED: 'Membership removed from user successfully',
 };
 
 // HTTP Status codes

@@ -21,8 +21,7 @@ model User {
   address      String?
   gender       String?
   dateOfBirth  DateTime?
-  membershipId Int?       // Foreign key to Membership table
-  membership   Membership? @relation(fields: [membershipId], references: [id])
+  memberships   UserMembership[]
   accessId     String?     @unique
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
@@ -33,5 +32,24 @@ model Membership {
   name        String
   description String?
   price       Float?
-  users       User[] // One-to-Many relationship with User
+  createdAt     DateTime        @default(now()) 
+  updatedAt     DateTime        @updatedAt      
+  userMemberships UserMembership[]
+}
+
+model UserMembership {
+  id            Int             @id @default(autoincrement())
+  userId        Int             // Foreign key to User
+  membershipId  Int             // Foreign key to Membership
+  startDate     DateTime        // When the membership started
+  endDate       DateTime?       // When the membership ended (null if active)
+  createdAt     DateTime        @default(now()) // Record creation timestamp
+  updatedAt     DateTime        @updatedAt      // Record last update timestamp
+
+  user          User            @relation(fields: [userId], references: [id])
+  membership    Membership      @relation(fields: [membershipId], references: [id])
+
+  @@index([userId])             // Index for quick lookups by user
+  @@index([membershipId])       // Index for quick lookups by membership
+  @@index([userId, membershipId]) // Compound index for efficient queries on user+membership
 }
