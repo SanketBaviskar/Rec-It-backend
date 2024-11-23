@@ -21,7 +21,7 @@ model User {
   address      String?
   gender       String?
   dateOfBirth  DateTime?
-  membershipType Int?       // Foreign key to Membership table
+  membershipId Int?       // Foreign key to Membership table
   membership   Membership? @relation(fields: [membershipId], references: [id])
   accessId     String?     @unique
   createdAt    DateTime   @default(now())

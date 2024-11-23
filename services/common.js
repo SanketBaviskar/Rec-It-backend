@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { membership } = require('../config/prisma');
 
 const prisma = new PrismaClient();
 
