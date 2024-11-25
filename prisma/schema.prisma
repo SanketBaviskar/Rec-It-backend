@@ -22,7 +22,8 @@ model User {
   gender       String?
   dateOfBirth  DateTime?
   memberships   UserMembership[]
-  accessId     String?     @unique
+  accessId     String?    @unique
+  studentId    Int?       @unique
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }

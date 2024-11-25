@@ -1,5 +1,4 @@
 const { PrismaClient } = require('@prisma/client');
-const { membership } = require('../config/prisma');
 
 const prisma = new PrismaClient();
 
@@ -30,17 +29,10 @@ const findOne = async (model, where, select = {}) => {
 };
 
 const findMany = async (model, options = {}) => {
-  // const { where = {}, select = {}, orderBy = {}, skip, take } = options;
   try {
-    // const results = await prisma[model].findMany({
-    //   where,
-    //   select: Object.keys(select).length === 0 ? { id: true, email: true, password: true, firstName: true, lastName: true, phone: true, address: true, gender: true, dateOfBirth: true, membershipId: true, accessId: true, role: true, status: true, avatar: true, membership: true, createdAt: true, updatedAt: true } : select,
-    //   orderBy,
-    //   skip,
-    //   take,
-    // });
+    console.lo
     const results = await prisma[model].findMany({
-      select: Object.keys(options).length > 0 ? options : undefined
+      ...options, // Spread options to include dynamic filtering
     });
     return results;
   } catch (error) {
