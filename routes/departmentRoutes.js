@@ -1,5 +1,5 @@
 const express = require('express');
-const { addDepartment, getAllDepartments, updateDepartment, deleteDepartment, assignDepartmentToUser } = require('../controllers/departmentController.js');
+const { addDepartment, getAllDepartments, updateDepartment, deleteDepartment, getDepartmentById} = require('../controllers/departmentController.js');
 const authenticate = require('../middlewares/authenticate.js');
 const validateRequest = require('../middlewares/validateRequest.js');
 const { update } = require('../services/common.js');
@@ -9,9 +9,9 @@ const router = express.Router();
 
 router.post('/', addDepartment);
 router.get('/', authenticate, getAllDepartments);
+router.get('/:id', authenticate, getDepartmentById);
 router.put('/:id', authenticate, updateDepartment);
 router.delete('/:id', authenticate, deleteDepartment);
-router.post('/assignDepartmentToUser', assignDepartmentToUser);
 
 
 

@@ -1,5 +1,11 @@
 // const prisma = require('../prisma/client'); // Import the Prisma client
-const { create, findMany, update, remove, findUnique } = require("../services/common");
+const {
+  create,
+  findMany,
+  update,
+  remove,
+  findUnique,
+} = require("../services/common");
 const {
   sendSuccessResponse,
   sendErrorResponse,
@@ -60,16 +66,21 @@ const getAllDepartments = async (req, res) => {
 const getDepartmentById = async (req, res) => {
   try {
     const { id } = req.params;
-
-    const department = await prisma.department.findUnique({
-      where: { id: parseInt(id) },
-    });
-
+    const department = await findUnique(
+      "department",
+      { id: parseInt(id) },
+      {
+        id: true,
+        name: true,
+        departmentIcon: true,
+        createdAt: true,
+        updatedAt: true,
+      }
+    );
     if (!department) {
       sendErrorResponse(res, HTTP_STATUS.NOT_FOUND, ERROR_MESSAGES.NOT_FOUND);
       return;
     }
-
     sendSuccessResponse(
       res,
       HTTP_STATUS.OK,
@@ -132,7 +143,6 @@ const deleteDepartment = async (req, res) => {
     );
   }
 };
-
 
 module.exports = {
   addDepartment,
