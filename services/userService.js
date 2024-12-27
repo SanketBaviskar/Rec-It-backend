@@ -1,5 +1,4 @@
 const prisma = require("../config/prisma");
-const { findMany } = require("./common");
 
 const createUser = async (userData) => {
   try {
@@ -68,7 +67,7 @@ const userList = async (search) => {
       }
     }
     const options = filters.length > 0 ? { where: { OR: filters } } : {};
-    return await findMany("user", options);
+    return await prisma.user.findMany(options);
   } catch (error) {
     console.error(`Error in userList: ${error.message}`);
     throw new Error(ERROR_MESSAGES.LIST_NOT_FOUND);

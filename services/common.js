@@ -30,9 +30,8 @@ const findOne = async (model, where, select = {}) => {
 
 const findMany = async (model, options = {}) => {
   try {
-    console.lo
     const results = await prisma[model].findMany({
-      ...options, // Spread options to include dynamic filtering
+      select: options, // Spread options to include dynamic filtering
     });
     return results;
   } catch (error) {
