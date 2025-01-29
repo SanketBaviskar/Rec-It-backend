@@ -45,12 +45,18 @@ const SUCCESS_MESSAGES = {
   MEMBERSHIP_DELETED: 'Membership deleted successfully',
   MEMBERSHIP_ASSIGNED: 'Membership assigned to user successfully',
   MEMBERSHIP_REVOKED: 'Membership removed from user successfully',
-    //DEPARTMENT
-    DEPARTMENT_CREATED: 'Department created successfully',
-    DEPARTMENT_UPDATED: 'Department updated successfully',
-    DEPARTMENT_DELETED: 'Department deleted successfully',
-    DEPARTMENT_ASSIGNED: 'Department assigned to user successfully',
-    DEPARTMENT_REVOKED: 'Department removed from user successfully',
+  //DEPARTMENT
+  DEPARTMENT_CREATED: 'Department created successfully',
+  DEPARTMENT_UPDATED: 'Department updated successfully',
+  DEPARTMENT_DELETED: 'Department deleted successfully',
+  DEPARTMENT_ASSIGNED: 'Department assigned to user successfully',
+  DEPARTMENT_REVOKED: 'Department removed from user successfully',
+  //INVENTORY
+  INVENTORY_CREATED: 'Inventory created successfully',
+  INVENTORY_UPDATED: 'Inventory updated successfully',
+  INVENTORY_DELETED: 'Inventory deleted successfully',
+  INVENTORY_ASSIGNED: 'Inventory assigned to user successfully',
+  INVENTORY_REVOKED: 'Inventory removed from user successfully',
 };
 
 // HTTP Status codes
