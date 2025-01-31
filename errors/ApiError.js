@@ -51,6 +51,12 @@ const SUCCESS_MESSAGES = {
   INVENTORY_DELETED: 'Inventory deleted successfully',
   INVENTORY_ASSIGNED: 'Inventory assigned to user successfully',
   INVENTORY_REVOKED: 'Inventory removed from user successfully',
+  //EQUIPMENT
+  EQUIPMENT_CREATED: 'Equipment created successfully',
+  EQUIPMENT_UPDATED: 'Equipment updated successfully',
+  EQUIPMENT_DELETED: 'Equipment deleted successfully',
+  EQUIPMENT_ASSIGNED: 'Equipment assigned to user successfully',
+  EQUIPMENT_REVOKED: 'Equipment removed from user successfully',
 };
 
 // HTTP Status codes
