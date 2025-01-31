@@ -55,25 +55,11 @@ model UserMembership {
   @@index([userId, membershipId]) // Compound index for efficient queries on user+membership
 }
 
-model Department {
-  id          Int          @id @default(autoincrement())
-  name        String       @unique
-  departmentIcon String?
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  inventories Inventory[]  // One-to-many relationship with Inventory
-  equipments  Equipment[]  // One-to-many relationship with Equipment
-
-  @@map("Departments")
-}
-
 model Inventory {
   id          Int          @id @default(autoincrement())
   name        String       // Name of the inventory category
   description String?      // Brief description of the inventory category
   location    String       // Location within the rec center
-  department  Department   @relation(fields: [departmentId], references: [id])
-  departmentId Int         // Foreign key to Department
   manager     String       // Manager responsible for the inventory
   quantity    Int          // Number of units in the inventory
   cost        Float        // Cost per unit of the inventory
@@ -93,8 +79,6 @@ model Equipment {
   price           Float        // Price of the equipment
   replacementFees Float        // Replacement fees for the equipment
   description     String?      // Brief description of the equipment
-  department      Department   @relation(fields: [departmentId], references: [id])
-  departmentId    Int          // Foreign key to Department
   location        String       // Location of the equipment
   inventory       Inventory    @relation(fields: [inventoryId], references: [id])
   inventoryId     Int          // Foreign key to Inventory
