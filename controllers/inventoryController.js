@@ -45,8 +45,6 @@ const getAllInventories = async (req, res) => {
       description: true,
       location: true,
       manager: true,
-      quantity: true,
-      cost: true,
       createdAt: true,
       updatedAt: true,
     });
@@ -79,8 +77,6 @@ const getInventoryById = async (req, res) => {
         description: true,
         location: true,
         manager: true,
-        quantity: true,
-        cost: true,
         createdAt: true,
         updatedAt: true,
       }

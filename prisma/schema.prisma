@@ -61,8 +61,6 @@ model Inventory {
   description String?      // Brief description of the inventory category
   location    String       // Location within the rec center
   manager     String       // Manager responsible for the inventory
-  quantity    Int          // Number of units in the inventory
-  cost        Float        // Cost per unit of the inventory
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   equipments  Equipment[]  // One-to-many relationship with Equipment
