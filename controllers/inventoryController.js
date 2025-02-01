@@ -45,6 +45,14 @@ const getAllInventories = async (req, res) => {
       description: true,
       location: true,
       manager: true,
+      equipments: {
+        select: {
+          id: true,
+          name: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+      },
       createdAt: true,
       updatedAt: true,
     });
