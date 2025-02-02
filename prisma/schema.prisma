@@ -64,7 +64,7 @@ model Inventory {
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   equipments  Equipment[]  // One-to-many relationship with Equipment
-  isInventory bool         // is it an inventory or product 
+  isInventory Boolean         // is it an inventory or product 
 
   @@map("Inventories")
 }
