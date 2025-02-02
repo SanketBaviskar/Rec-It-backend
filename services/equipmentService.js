@@ -24,6 +24,7 @@ const getAllEquipments = async (inventoryId = null) => {
         },
         createdAt: true,
         updatedAt: true,
+        isInventory: true,
       },
     });
 

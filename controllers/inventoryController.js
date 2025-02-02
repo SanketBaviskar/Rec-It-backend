@@ -55,6 +55,7 @@ const getAllInventories = async (req, res) => {
       },
       createdAt: true,
       updatedAt: true,
+      isInventory: true,
     });
     sendSuccessResponse(
       res,
@@ -87,6 +88,7 @@ const getInventoryById = async (req, res) => {
         manager: true,
         createdAt: true,
         updatedAt: true,
+        isInventory: true,
       }
     );
     if (!inventory) {
