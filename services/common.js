@@ -42,6 +42,7 @@ const findMany = async (model, options = {}) => {
 
 const create = async (model, data) => {
   try {
+    console.log(data);
     const result = await prisma[model].create({
       data,
     });
