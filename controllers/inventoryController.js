@@ -139,6 +139,9 @@ const updateInventory = async (req, res) => {
 const deleteInventory = async (req, res) => {
   try {
     const { id } = req.params;
+    await remove("equipment", {
+      inventoryId: parseInt(id),
+    });
     await remove("inventory", {
       id: parseInt(id),
     });
