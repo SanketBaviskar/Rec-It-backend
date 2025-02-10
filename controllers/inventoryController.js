@@ -4,6 +4,7 @@ const {
   findMany,
   update,
   remove,
+  removeAll,
   findUnique,
 } = require("../services/common");
 const {
@@ -139,7 +140,7 @@ const updateInventory = async (req, res) => {
 const deleteInventory = async (req, res) => {
   try {
     const { id } = req.params;
-    await remove("equipment", {
+    await removeAll("equipment", {
       inventoryId: parseInt(id),
     });
     await remove("inventory", {

@@ -77,6 +77,18 @@ const remove = async (model, where) => {
   }
 };
 
+const removeAll = async (model, where) => {
+  try {
+    const result = await prisma[model].deleteMany({
+      where,
+    });
+    return result;
+  } catch (error) {
+    console.error(`Error in remove operation: ${error.message}`);
+    throw error;
+  }
+};
+
 const count = async (model, where = {}) => {
   try {
     const result = await prisma[model].count({
@@ -96,6 +108,7 @@ module.exports = {
   create,
   update,
   remove,
+  removeAll,
   count,
 };
 
