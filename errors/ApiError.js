@@ -57,6 +57,12 @@ const SUCCESS_MESSAGES = {
   EQUIPMENT_DELETED: 'Equipment deleted successfully',
   EQUIPMENT_ASSIGNED: 'Equipment assigned to user successfully',
   EQUIPMENT_REVOKED: 'Equipment removed from user successfully',
+  //FACILITY
+  FACILITY_CREATED: 'Facility created successfully',
+  FACILITY_UPDATED: 'Facility updated successfully',
+  FACILITY_DELETED: 'Facility deleted successfully',
+  FACILITY_ASSIGNED: 'Facility assigned to user successfully',
+  FACILITY_REVOKED: 'Facility removed from user successfully',
 };
 
 // HTTP Status codes

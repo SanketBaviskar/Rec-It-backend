@@ -85,3 +85,14 @@ model Equipment {
 
   @@map("Equipments")
 }
+
+model Facility {
+  id Int @id @default(autoincrement())
+  name String
+  description String?
+  capacity Int
+  location String
+  manager String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
