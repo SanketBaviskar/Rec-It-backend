@@ -1,5 +1,10 @@
 const prisma = require("../config/prisma");
 
+/**
+ * Creates a new user in the database.
+ * @param {object} userData - The data for the new user.
+ * @returns {object} - The created user.
+ */
 const createUser = async (userData) => {
   try {
     const user = await prisma.user.create({ data: userData });
@@ -10,6 +15,11 @@ const createUser = async (userData) => {
   }
 };
 
+/**
+ * Finds a user by their email address.
+ * @param {string} email - The email address to search for.
+ * @returns {object} - The found user.
+ */
 const findUserByEmail = async (email) => {
   try {
     const user = await prisma.user.findUnique({ where: { email } });
@@ -20,6 +30,11 @@ const findUserByEmail = async (email) => {
   }
 };
 
+/**
+ * Finds a user by their ID.
+ * @param {number} id - The ID of the user to search for.
+ * @returns {object} - The found user.
+ */
 const findUserById = async (id) => {
   try {
     const user = await prisma.user.findUnique({ where: { id } });
@@ -30,6 +45,12 @@ const findUserById = async (id) => {
   }
 };
 
+/**
+ * Updates a user's information in the database.
+ * @param {number} id - The ID of the user to update.
+ * @param {object} userData - The new data for the user.
+ * @returns {object} - The updated user.
+ */
 const updateUser = async (id, userData) => {
   try {
     const updatedUser = await prisma.user.update({
@@ -43,6 +64,11 @@ const updateUser = async (id, userData) => {
   }
 };
 
+/**
+ * Deletes a user from the database by their ID.
+ * @param {number} id - The ID of the user to delete.
+ * @returns {object} - The deleted user.
+ */
 const deleteUserById = async (id) => {
   try {
     const deletedUser = await prisma.user.delete({ where: { id } });
@@ -53,6 +79,11 @@ const deleteUserById = async (id) => {
   }
 };
 
+/**
+ * Retrieves a list of users, optionally filtered by a search term.
+ * @param {string} search - The search term to filter users by.
+ * @returns {Array} - The list of found users.
+ */
 const userList = async (search) => {
   try {
     console.log(search);
