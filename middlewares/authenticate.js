@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const { findUnique } = require('../services/common');
+import { verify, JsonWebTokenError } from 'jsonwebtoken';
+import { findUnique } from '../services/common';
 
 const authenticate = async (req, res, next) => {
   try {
@@ -9,7 +9,7 @@ const authenticate = async (req, res, next) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = verify(token, process.env.JWT_SECRET);
 
     const user = await findUnique('user', { id: decoded.userId }, { id: true, email: true });
 
@@ -20,12 +20,12 @@ const authenticate = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    if (error instanceof jwt.JsonWebTokenError) {
+    if (error instanceof JsonWebTokenError) {
       return res.status(401).json({ error: 'Invalid token' });
     }
     next(error);
   }
 };
 
-module.exports = authenticate;
+export default authenticate;
 

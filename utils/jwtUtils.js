@@ -1,12 +1,12 @@
-const jwt = require('jsonwebtoken');
+import { sign, verify } from 'jsonwebtoken';
 
  const generateToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '1d' });
+  return sign({ userId }, process.env.JWT_SECRET, { expiresIn: '1d' });
 };
 
 const verifyToken = async (token) => {
   return new Promise((resolve, reject) => {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         console.error("JWT verification error:", err);
         return reject(err);
@@ -16,5 +16,5 @@ const verifyToken = async (token) => {
   });
 };
 
-module.exports = { generateToken, verifyToken };
+export default { generateToken, verifyToken };
 

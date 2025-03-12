@@ -1,10 +1,10 @@
-const prisma = require("../config/prisma");
+import { equipment } from "../config/prisma";
 
 const getAllEquipments = async (inventoryId = null) => {
   try {
     const whereClause = inventoryId ? { inventoryId: parseInt(inventoryId) } : {};
 
-    const equipments = await prisma.equipment.findMany({
+    const equipments = await equipment.findMany({
       where: whereClause,
       select: {
         id: true,
@@ -34,6 +34,6 @@ const getAllEquipments = async (inventoryId = null) => {
   }
 };
 
-module.exports = {
+export default {
   getAllEquipments,
 };

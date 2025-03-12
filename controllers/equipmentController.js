@@ -1,20 +1,8 @@
-const {
-    create,
-    findMany,
-    update,
-    remove,
-    findUnique,
-} = require("../services/common");
-const equipmentService = require("../services/equipmentService");
-const {
-    sendSuccessResponse,
-    sendErrorResponse,
-} = require("../utils/responseFormatter");
-const {
-    HTTP_STATUS,
-    SUCCESS_MESSAGES,
-    ERROR_MESSAGES,
-} = require("../errors/ApiError");
+import { create, findMany, update, remove, findUnique } from "../services/common";
+import equipmentService from "../services/equipmentService";
+import { sendSuccessResponse, sendErrorResponse } from "../utils/responseFormatter";
+import { HTTP_STATUS, SUCCESS_MESSAGES, ERROR_MESSAGES,} from "../errors/ApiError";
+
 
 // Create a new equipment
 const addEquipment = async (req, res) => {
@@ -148,7 +136,7 @@ const deleteEquipment = async (req, res) => {
     }
 };
 
-module.exports = {
+export default {
     addEquipment,
     getAllEquipments,
     getEquipmentById,

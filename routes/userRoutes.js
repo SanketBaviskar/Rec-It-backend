@@ -1,10 +1,10 @@
-const express = require('express');
-const { register, login, getProfile, updateProfile, deleteUser, allUsers, addUser } = require('../controllers/userController.js');
-const authenticate = require('../middlewares/authenticate.js');
-const validateRequest = require('../middlewares/validateRequest.js');
-const { registerSchema, loginSchema, updateProfileSchema } = require('../validations/userSchemas.js');
+import { Router } from 'express';
+import { register, login, getProfile, updateProfile, deleteUser, allUsers, addUser } from '../controllers/userController.js';
+import authenticate from '../middlewares/authenticate.js';
+import validateRequest from '../middlewares/validateRequest.js';
+import { registerSchema, loginSchema, updateProfileSchema } from '../validations/userSchemas.js';
 
-const router = express.Router();
+const router = Router();
 
 router.post('/register', validateRequest(registerSchema), register);
 router.post('/login', validateRequest(loginSchema), login);
@@ -14,5 +14,5 @@ router.delete('/', authenticate, deleteUser);
 router.get('/', authenticate, allUsers);
 router.post('/addUser', addUser);
 
-module.exports = router;
+export default router;
 

@@ -1,11 +1,11 @@
-const express = require('express');
-const { addEquipment, getAllEquipments, updateEquipment, deleteEquipment, getEquipmentById } = require('../controllers/equipmentController.js');
-const authenticate = require('../middlewares/authenticate.js');
-const validateRequest = require('../middlewares/validateRequest.js');
-const { update } = require('../services/common.js');
+import { Router } from 'express';
+import { addEquipment, getAllEquipments, updateEquipment, deleteEquipment, getEquipmentById } from '../controllers/equipmentController.js';
+import authenticate from '../middlewares/authenticate.js';
+import validateRequest from '../middlewares/validateRequest.js';
+import { update } from '../services/common.js';
 // const { registerSchema, loginSchema, updateProfileSchema } = require('../validations/userSchemas.js');
 
-const router = express.Router();
+const router = Router();
 
 router.post('/', addEquipment);
 router.get('/', getAllEquipments);
@@ -15,5 +15,5 @@ router.delete('/:id', deleteEquipment);
 
 
 
-module.exports = router;
+export default router;
 

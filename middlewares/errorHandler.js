@@ -1,4 +1,4 @@
-const { sendErrorResponse } = require('../utils/responseFormatter');
+import { sendErrorResponse } from '../utils/responseFormatter';
 
 const errorHandler = (err, req, res, next) => {
   console.error(err.stack);
@@ -9,4 +9,4 @@ const errorHandler = (err, req, res, next) => {
   sendErrorResponse(res, statusCode, message);
 };
 
-module.exports = errorHandler;
+export default errorHandler;

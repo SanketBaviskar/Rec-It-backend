@@ -1,4 +1,4 @@
-const prisma = require("../config/prisma");
+import { user as _user } from "../config/prisma";
 
 /**
  * Creates a new user in the database.
@@ -7,7 +7,7 @@ const prisma = require("../config/prisma");
  */
 const createUser = async (userData) => {
   try {
-    const user = await prisma.user.create({ data: userData });
+    const user = await _user.create({ data: userData });
     return user;
   } catch (error) {
     console.error("Error creating user:", error.message);
@@ -22,7 +22,7 @@ const createUser = async (userData) => {
  */
 const findUserByEmail = async (email) => {
   try {
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await _user.findUnique({ where: { email } });
     return user;
   } catch (error) {
     console.error("Error finding user by email:", error.message);
@@ -37,7 +37,7 @@ const findUserByEmail = async (email) => {
  */
 const findUserById = async (id) => {
   try {
-    const user = await prisma.user.findUnique({ where: { id } });
+    const user = await _user.findUnique({ where: { id } });
     return user;
   } catch (error) {
     console.error("Error finding user by ID:", error.message);
@@ -53,7 +53,7 @@ const findUserById = async (id) => {
  */
 const updateUser = async (id, userData) => {
   try {
-    const updatedUser = await prisma.user.update({
+    const updatedUser = await _user.update({
       where: { id },
       data: userData,
     });
@@ -71,7 +71,7 @@ const updateUser = async (id, userData) => {
  */
 const deleteUserById = async (id) => {
   try {
-    const deletedUser = await prisma.user.delete({ where: { id } });
+    const deletedUser = await _user.delete({ where: { id } });
     return deletedUser;
   } catch (error) {
     console.error("Error deleting user by ID:", error.message);
@@ -98,14 +98,14 @@ const userList = async (search) => {
       }
     }
     const options = filters.length > 0 ? { where: { OR: filters } } : {};
-    return await prisma.user.findMany(options);
+    return await _user.findMany(options);
   } catch (error) {
     console.error(`Error in userList: ${error.message}`);
     throw new Error(ERROR_MESSAGES.LIST_NOT_FOUND);
   }
 };
 
-module.exports = {
+export default {
   createUser,
   findUserByEmail,
   findUserById,

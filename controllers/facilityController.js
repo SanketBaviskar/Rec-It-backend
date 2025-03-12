@@ -1,7 +1,7 @@
 // const prisma = require('../prisma/client'); // Import the Prisma client
-const { create, findMany, update, remove, findUnique } = require('../services/common');
-const { sendSuccessResponse, sendErrorResponse } = require('../utils/responseFormatter');
-const { HTTP_STATUS, SUCCESS_MESSAGES, ERROR_MESSAGES } = require('../errors/ApiError');
+import { create, findMany, update, remove, findUnique } from '../services/common';
+import { sendSuccessResponse, sendErrorResponse } from '../utils/responseFormatter';
+import {HTTP_STATUS, SUCCESS_MESSAGES, ERROR_MESSAGES } from '../errors/ApiError';
 
 // Create a new facility
 const addFacility = async (req, res) => {
@@ -75,7 +75,7 @@ const deleteFacility = async (req, res) => {
 };
 
 
-module.exports = {
+export default {
     addFacility,
     getAllFacilities,
     getFacilityById,

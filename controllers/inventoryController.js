@@ -1,21 +1,8 @@
 // const prisma = require('../prisma/client'); // Import the Prisma client
-const {
-  create,
-  findMany,
-  update,
-  remove,
-  removeAll,
-  findUnique,
-} = require("../services/common");
-const {
-  sendSuccessResponse,
-  sendErrorResponse,
-} = require("../utils/responseFormatter");
-const {
-  HTTP_STATUS,
-  SUCCESS_MESSAGES,
-  ERROR_MESSAGES,
-} = require("../errors/ApiError");
+import { create, findMany, update, remove, removeAll, findUnique } from "../services/common";
+import { sendSuccessResponse, sendErrorResponse } from "../utils/responseFormatter";
+import {HTTP_STATUS, SUCCESS_MESSAGES, ERROR_MESSAGES,} from "../errors/ApiError";
+
 
 // Create a new inventory
 const addInventory = async (req, res) => {
@@ -162,7 +149,7 @@ const deleteInventory = async (req, res) => {
   }
 };
 
-module.exports = {
+export default {
   addInventory,
   getAllInventories,
   getInventoryById,

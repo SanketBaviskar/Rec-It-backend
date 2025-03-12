@@ -1,4 +1,4 @@
-const { register } = require("../controllers/userController");
+import { register } from "../controllers/userController";
 
 // Error messages
 const ERROR_MESSAGES = {
@@ -76,4 +76,4 @@ const HTTP_STATUS = {
   INTERNAL_SERVER_ERROR: 500,
 };
 
-module.exports = { ERROR_MESSAGES, SUCCESS_MESSAGES, HTTP_STATUS };
+export default { ERROR_MESSAGES, SUCCESS_MESSAGES, HTTP_STATUS };
